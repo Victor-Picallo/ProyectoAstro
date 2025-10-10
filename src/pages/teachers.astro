@@ -1,0 +1,16 @@
+---
+//Pagina generada con SSG
+//Se genera en build
+import MiLayout from "../layouts/MiLayout.astro";
+const califactivo = 'favoritos';
+const teachers = ['Angel', 'Pepe', 'Antonio', 'Marta']
+---
+
+<MiLayout title="Teachers SSG">
+    <h1>Listado de profes {califactivo} con SSG</h1>
+    <ul>
+        {teachers.map(teacher => (
+            <li>{teacher}</li>
+        ))}
+</MiLayout>
+

@@ -1,0 +1,23 @@
+---
+import MiLayout from "../layouts/MiLayout.astro";
+
+// Esta web nos da el tiempo en una ciudad determinada wttr.in
+//muestra el tiempo actual
+//El usuario podra escribir en una caja de texto la ciudad que quiere consultar
+const city = Astro.url.searchParams.get('city');
+const response = await fetch(`https://wttr.in/${city}?format=j1`);
+const weather = await response.json();
+
+---
+
+<MiLayout title="El tiempo">
+    <h3>El tiempo en: </h3>
+    <form>
+        <input type="text" name="city" placeholder="Escribe una ciudad..." value={city}/>
+        <button>Enviar</button>
+    </form>
+
+    <div>
+        <p>Temperatura actual: {weather.current_condition[0].temp_C}ºC</p>
+    </div>
+</MiLayout>

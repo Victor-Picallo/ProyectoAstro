@@ -1,0 +1,23 @@
+---
+import MiLayout from "../layouts/MiLayout.astro";
+
+---
+
+<MiLayout title="Teachers CSR">
+   <h1>Listado de teachers calificativo usando CSR</h1> 
+   <ul id="profes">
+
+   </ul>
+</MiLayout>
+
+<script>
+    //ESTO LO EJECUTA EL CLIENTE
+    //NUNCA PONEMOS ACCESO A APIS, BASES DE DATOS, ETC
+    const teachers = ['Angel', 'Pepe', 'Antonio', 'Marta']
+    const $ul =  document.getElementById('profes')
+    teachers.forEach(teacher => {
+        const $li = document.createElement('li')
+        $li.textContent = teacher
+        $ul?.appendChild($li)
+    })
+</script>

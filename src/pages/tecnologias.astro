@@ -1,0 +1,16 @@
+---
+import MiLayout from "../layouts/MiLayout.astro";
+import tecnologias from "../data/tecnologias.json";
+import Tecnologia from "../components/Tecnologia.astro";
+import Button from "../components/Button.astro";
+---
+
+<MiLayout title="Lista de tecnologias">
+    <h1>Listado de tecnologias que dominamos</h1>
+    <ul>
+        {tecnologias.map(tec => <Tecnologia nombre={tec.nombre} descripcion={tec.descripcion}/>)}
+    </ul>
+
+    <Button href="/">Volver</Button>
+</MiLayout>
+
