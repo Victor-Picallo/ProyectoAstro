@@ -1,0 +1,31 @@
+---
+//--> SSG (static) No necesita nada, lo puede subir a github pages
+//CSR (cliente) No necesita nada, lo ejecuta el cliente
+//SSR (Servidor) Necesito un servidor que sepa ejecutar Node (aws, google cloud, vercel, netlify...)
+// Lo bueno que tiene es que los nuevos cambios en la web se ven al momento, pero lo malo es que hago una nueva llamada a la API cada vez que alguien entra en la web
+// Estamos usando SSG por que lo hemos decidido en el astro.config.mjs
+import MiLayout from "../../layouts/MiLayout.astro";
+
+interface Post {
+    id: number;
+    title: string;
+    body: string;
+}
+
+export async function getStaticPaths() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const posts: Post[] = await response.json();
+
+    return posts.map(post => ({
+        params: {id: post.id.toString()}, props: {post: post}
+    }))
+}
+const { post } = Astro.props;
+
+---
+
+<MiLayout>
+    <h1>Datos del post</h1>
+    <p>Titulo: {post.title}</p>
+    <p>Contenido: {post.body}</p>
+</MiLayout>

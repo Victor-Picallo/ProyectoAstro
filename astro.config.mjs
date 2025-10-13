@@ -8,5 +8,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  output: 'server' // Esto convierte Astro en SSR
+  //output: 'server' // Esto convierte Astro en SSR
 });
