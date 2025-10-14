@@ -9,5 +9,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   //output: 'server' // Esto convierte Astro en SSR
-  outDir: 'docs' // Esto convierte Astro en SSG
+  outDir: './docs',
+  base: "/ProyectoAstro",
+  site: "https://victor-picallo.github.io/ProyectoAstro/",
 });
