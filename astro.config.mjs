@@ -8,8 +8,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  //output: 'server' // Esto convierte Astro en SSR
-  outDir: './docs',
-  base: "/ProyectoAstro",
+  output: 'server' // Esto convierte Astro en SSR
+/*   base: "/ProyectoAstro/",
   site: "https://victor-picallo.github.io/ProyectoAstro/",
+  outDir: './docs', */
 });
