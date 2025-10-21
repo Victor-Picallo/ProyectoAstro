@@ -1,0 +1,12 @@
+---
+import MiLayout from "../../layouts/MiLayout.astro";
+
+const response = await fetch("https://api.thecatapi.com/v1/images/search");
+const gato = await response.json();
+const apiKey = import.meta.env.api_key_gatos;
+---
+
+<MiLayout title="Gatos">
+    <h1>Imagen de gato aleatoria</h1>
+    <img src={gato[0].url} alt="Imagen de un gato" width="400" />
+</MiLayout>
